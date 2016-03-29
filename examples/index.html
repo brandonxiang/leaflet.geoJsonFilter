@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="//cdn.bootcss.com/leaflet/0.7.7/leaflet.css" rel="stylesheet">
+	<script src="//cdn.bootcss.com/leaflet/0.7.7/leaflet.js"></script>
+	<script type="text/javascript" src="L.geoJsonFilter.js"></script>
+	<meta charset="UTF-8">
+	<title>example for leaflet.markerfilter</title>
+	<style>
+.menu-ui {
+background:#fff;
+position:absolute;
+top:10px;right:10px;
+z-index:1;
+border-radius:3px;
+width:120px;
+border:1px solid rgba(0,0,0,0.4);
+}
+.menu-ui a {
+font-size:13px;
+color:#404040;
+display:block;
+margin:0;padding:0;
+padding:10px;
+text-decoration:none;
+border-bottom:1px solid rgba(0,0,0,0.25);
+text-align:center;
+}
+.menu-ui a:first-child {
+border-radius:3px 3px 0 0;
+}
+.menu-ui a:last-child {
+border:none;
+border-radius:0 0 3px 3px;
+}
+.menu-ui a:hover {
+background:#f8f8f8;
+color:#404040;
+}
+.menu-ui a.active,
+.menu-ui a.active:hover {
+background:#3887BE;
+color:#FFF;
+}
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+	</style>
+</head>
+<body>
+	<nav id='menu-ui' class='menu-ui'>
+	  <a href='#' class='active' id='filterall'>number === all</a>
+	  <a href='#' id='filter1'>number === 1</a>
+	  <a href='#' id='filter2'>number === 2</a>
+	</nav>
+	<div id="map"></div>
+	<script type="text/javascript">
+		 var geojson = [
+		  {
+		    "type": "Feature",
+		    "geometry": {
+		      "type": "Point",
+		      "coordinates": [113.9230309538,22.5328601327]
+		    },
+		    "properties":{
+		    	"number":1
+		    }
+		  },
+		  {
+		    "type": "Feature",
+		    "geometry": {
+		      "type": "Point",
+		      "coordinates": [113.9098394332,22.5308440047]
+		    },
+		    "properties":{
+		    	"number":1
+		    }
+		  },
+		  {
+		    "type": "Feature",
+		    "geometry": {
+		      "type": "Point",
+		      "coordinates": [113.9184338316,22.5283211404]
+		    },
+		    "properties":{
+		    	"number":2
+		    }
+		  },
+		  {
+		    "type": "Feature",
+		    "geometry": {
+		      "type": "Point",
+		      "coordinates": [113.9001586386,22.5495591260]
+		    },
+		    "properties":{
+		    	"number":1
+		    }
+		  },
+		  		  {
+		    "type": "Feature",
+		    "geometry": {
+		      "type": "Point",
+		      "coordinates": [113.9497931782,22.5566469565]
+		    },
+		    "properties":{
+		    	"number":2
+		    }
+		  },
+		  {
+		    "type": "Feature",
+		    "geometry": {
+		      "type": "Point",
+		      "coordinates": [113.9592382646,22.5339793452]
+		    },
+		    "properties":{
+		    	"number":1
+		    }
+		  },
+		  {
+		    "type": "Feature",
+		    "geometry": {
+		      "type": "Point",
+		      "coordinates": [113.9472855028,22.5067787643]
+		    },
+		    "properties":{
+		    	"number":2
+		    }
+		  },
+		  {
+		    "type": "Feature",
+		    "geometry": {
+		      "type": "Point",
+		      "coordinates": [113.8875994756,22.5023345019]
+		    },
+		    "properties":{
+		    	"number":1
+		    }
+		  },
+		];
+
+		var map = L.map('map').setView([22.5365321328,113.9173539538], 13);
+		var filterall = document.getElementById('filterall');
+		var filter1 = document.getElementById('filter1');
+		var filter2 = document.getElementById('filter2');
+
+		L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
+
+		var marker =L.geoJsonFilter(geojson).addTo(map);
+
+		filterall.onclick= function(e){
+			filterall.className = 'active';
+			filter1.className = '';
+			filter2.className = '';
+			marker.setFilter(function(f){
+				return true;
+			});
+		};
+		filter1.onclick= function(e){
+			filterall.className = '';
+			filter1.className = 'active';
+			filter2.className = '';
+			marker.setFilter(function(f){
+				return f.properties.number === 1;
+			});
+		};
+		filter2.onclick= function(e){
+			filterall.className = '';
+			filter1.className = '';
+			filter2.className = 'active';
+			marker.setFilter(function(f){
+				return f.properties.number === 2;
+			});
+		};
+		
+	</script>
+</body>
+</html>
