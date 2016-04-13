@@ -11,6 +11,10 @@ When you use `setFilter` function in `L.geoJson`, the origin geoJson will not be
     return f.properties.number === 2;
 });
  ```
+ 
+ ###DEMO
+
+DEMO http://brandonxiang.github.io/leaflet.geoJsonFilter/
 
 ##进阶插件编写geojsonFilter
 
