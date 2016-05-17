@@ -12,7 +12,7 @@ When you use `setFilter` function in `L.geoJson`, the origin geoJson will not be
 });
  ```
  
- ###DEMO
+###DEMO
 
 DEMO http://brandonxiang.github.io/leaflet.geoJsonFilter/
 
