@@ -16,6 +16,11 @@ When you use `setFilter` function in `L.geoJson`, the origin geoJson will not be
 
 DEMO http://brandonxiang.github.io/leaflet.geoJsonFilter/
 
+###LICENSE
+
+[MIT](LICENSE)
+
+
 ##进阶插件编写geojsonFilter
 
 ----------------------------------
