@@ -146,7 +146,7 @@ body { margin:0; padding:0; }
 		    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
 
-		var marker =L.geoJsonFilter(geojson).addTo(map);
+		var marker =L.geoJson(geojson).addTo(map);
 
 		filterall.onclick= function(e){
 			filterall.className = 'active';
