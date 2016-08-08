@@ -4,6 +4,21 @@ This extension of leaflet is inspired by mapbox [featureLayer.setFilter](https:/
 
 When you use `setFilter` function in `L.geoJson`, the origin geoJson will not be stored. After changing the filter, markers will becomes less. Therefore I wants to save the geoJson alternatively.  
 
+## Installation
+
+From npm repo
+
+```
+npm install leafletgeojsonfilter --save
+```
+
+From CDN
+
+```
+https://cdn.rawgit.com/brandonxiang/leaflet.geoJsonFilter/develop/src/L.geoJsonFilter.js
+```
+
+
 ## Version
 
 0.0.1 L.geoJsonFilter is a extension of L.GeoJSON, so you should call `L.geoJsonFilter`

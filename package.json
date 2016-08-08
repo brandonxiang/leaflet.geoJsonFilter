@@ -1,14 +1,16 @@
 {
   "name": "leafletgeojsonfilter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "This extension of leaflet is inspired by mapbox setfilter function.",
   "main": "src/L.geoJsonFilter.js",
   "directories": {
     "example": "examples"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"browser-sync start --server --files \"**/*.html,**/*.css,**/*.js\""
+    "dev": "browser-sync start --server --files \"**/*.html,**/*.css,**/*.js\"",
+    "build-js": "cat  ./src/L.geoJsonFilter.js > ./dist/L.geojsonfilter-src.js",
+    "compress": "uglifyjs ./dist/L.geojsonfilter-src.js -o ./dist/L.geojsonfilter.js -m",
+    "build": "npm run build-js && npm run compress"
   },
   "repository": {
     "type": "git",
@@ -24,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/brandonxiang/leaflet.geoJsonFilter/issues"
   },
-  "homepage": "https://github.com/brandonxiang/leaflet.geoJsonFilter#readme"
+  "homepage": "https://github.com/brandonxiang/leaflet.geoJsonFilter#readme",
+  "devDependencies": {
+    "uglifyjs": "^2.4.10"
+  }
 }
