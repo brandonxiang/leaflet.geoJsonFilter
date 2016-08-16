@@ -1,5 +1,5 @@
 {
-  "name": "leafletgeojsonfilter",
+  "name": "leaflet.geojsonfilter",
   "version": "0.1.1",
   "description": "This extension of leaflet is inspired by mapbox setfilter function.",
   "main": "src/L.geoJsonFilter.js",

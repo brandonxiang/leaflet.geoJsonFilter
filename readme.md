@@ -9,7 +9,7 @@ When you use `setFilter` function in `L.geoJson`, the origin geoJson will not be
 From npm repo
 
 ```
-npm install leafletgeojsonfilter --save
+npm install leaflet.geojsonfilter --save
 ```
 
 From CDN
